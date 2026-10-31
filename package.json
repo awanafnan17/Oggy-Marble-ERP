@@ -1,0 +1,36 @@
+{
+    "$schema": "https://www.schemastore.org/package.json",
+    "name": "oggy-marble-erp",
+    "version": "1.0.0",
+    "private": true,
+    "type": "module",
+    "engines": {
+        "node": ">=20.19"
+    },
+    "scripts": {
+        "build": "vite build",
+        "dev": "vite",
+        "typecheck": "tsc --noEmit"
+    },
+    "devDependencies": {
+        "@playwright/test": "^1.61.0",
+        "@tailwindcss/vite": "^4.3.1",
+        "@types/node": "^25.9.3",
+        "@types/react": "^19.2.17",
+        "@types/react-dom": "^19.2.3",
+        "@vitejs/plugin-react": "^6.0.2",
+        "concurrently": "^9.0.1",
+        "laravel-vite-plugin": "^3.1",
+        "tailwindcss": "^4.3.1",
+        "typescript": "^6.0.3",
+        "vite": "^8.0.0"
+    },
+    "dependencies": {
+        "@inertiajs/react": "^3.4.0",
+        "axios": "^1.18.0",
+        "lucide-react": "^1.20.0",
+        "react": "^19.2.7",
+        "react-dom": "^19.2.7",
+        "recharts": "^3.8.1"
+    }
+}

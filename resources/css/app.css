@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #F8FAFC;
+  --color-sidebar: #FFFFFF;
+  --color-primary-accent: #D97706;
+  --color-secondary-accent: #EA580C;
+  --color-success-green: #10B981;
+  --color-warning-amber: #F59E0B;
+  --color-danger-red: #EF4444;
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+html {
+  font-size: 16.5px;
+  background-color: #F8FAFC;
+  color: #0F172A;
+}
+
+body {
+  font-size: 1rem;
+  line-height: 1.5;
+  background-color: #F8FAFC;
+  color: #0F172A;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom scrollbar for clean white theme */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+button, select, input[type="button"], input[type="submit"], input[type="reset"] {
+  cursor: pointer;
+}
+
+button:disabled, input:disabled, select:disabled {
+  cursor: not-allowed;
+}
+
+/* Print CSS optimization for ERP reports and invoices */
+@media print {
+  body {
+    background-color: #FFFFFF !important;
+    color: #000000 !important;
+    font-size: 12pt !important;
+  }
+
+  aside, nav, button, .no-print {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+    page-break-inside: avoid;
+  }
+
+  @page {
+    size: A4;
+    margin: 1.5cm;
+  }
+}

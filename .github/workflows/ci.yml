@@ -1,0 +1,65 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  application:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: mbstring, pdo_sqlite, gd, exif, fileinfo
+          coverage: none
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Prepare environment
+        run: cp .env.example .env
+
+      - name: Install PHP dependencies
+        run: composer install --no-interaction --prefer-dist --no-progress
+
+      - name: Install frontend dependencies
+        run: npm ci
+
+      - name: Generate application key
+        run: php artisan key:generate
+
+      - name: Validate dependency manifests
+        run: |
+          composer validate --strict
+          composer audit --locked
+          npm audit --omit=dev --audit-level=high
+
+      - name: Type-check frontend
+        run: npm run typecheck
+
+      - name: Check PHP formatting
+        run: vendor/bin/pint --test
+
+      - name: Build frontend
+        run: npm run build
+
+      - name: Run application tests
+        run: php artisan test

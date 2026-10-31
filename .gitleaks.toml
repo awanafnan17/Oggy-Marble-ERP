@@ -1,0 +1,11 @@
+title = "Oggy Marble ERP secret scanning"
+
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Generated dependency trees and local build output"
+paths = [
+  '''(^|/)(vendor|node_modules|public/build)(/|$)''',
+  '''(^|/)(composer|package)-lock\.json$'''
+]
