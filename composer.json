@@ -6,7 +6,7 @@
     "keywords": ["erp", "laravel", "inertia", "react", "marble", "manufacturing"],
     "license": "proprietary",
     "require": {
-        "php": "^8.2|^8.3",
+        "php": ">=8.2 <8.4",
         "inertiajs/inertia-laravel": "^2.0|^3.0",
         "laravel/framework": "^12.69",
         "laravel/tinker": "^3.0"
@@ -80,6 +80,9 @@
         "allow-plugins": {
             "pestphp/pest-plugin": true,
             "php-http/discovery": true
+        },
+        "platform": {
+            "php": "8.3.0"
         }
     },
     "minimum-stability": "stable",
