@@ -6,17 +6,16 @@
 ![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=111827)
 ![TypeScript](https://img.shields.io/badge/TypeScript-6-3178C6?logo=typescript&logoColor=white)
 
-A full-stack enterprise resource planning system designed around the operational
-reality of marble manufacturing: raw-stone intake, stone-to-slab and
-slab-to-tile production, batch inventory, accounting, quality control, dispatch,
-and management reporting.
+Oggy Marble ERP tracks a marble factory from raw-stone intake to the financial
+ledger. It covers stone-to-slab and slab-to-tile production, batch inventory,
+purchasing, sales, accounting, quality control, dispatch, and reporting.
 
 This public edition is a **sanitized, source-available portfolio release**.
 Production databases, credentials, transaction proofs, backups, staff records,
 customer records, deployment files, and client-specific branding are not part of
 the repository.
 
-## Why this project is different
+## How the workflow fits together
 
 Oggy Marble ERP connects factory operations to accounting rather than treating
 them as separate systems. A production run can consume inventory, record output,
@@ -78,9 +77,9 @@ posting rules, and data-flow details.
 
 ## Local demo
 
-There is intentionally no hosted public ERP demo. A shared authenticated demo
-would require persistent data and would create unnecessary privacy and abuse
-risk. The complete application can be evaluated locally with synthetic data.
+There is no hosted public ERP demo because a shared authenticated instance would
+need persistent data and introduce privacy and abuse risks. The complete
+application can be evaluated locally with synthetic data.
 
 ### Prerequisites
 
@@ -141,14 +140,14 @@ password; use the authenticated security screen for password changes.
 
 The default role catalogue includes:
 
-- Administrator — complete system control
-- Owner — broad read access to KPIs, reports, and operations
-- Accountant — accounting, reporting, sales, purchasing, and cash/bank work
-- Inventory manager — stock, batches, warehouses, adjustments, and transfers
-- Production manager — BOMs, production runs, schedules, machines, and variance
-- Sales representative and purchase agent — scoped commercial workflows
-- Quality inspector and dispatch clerk — scoped operational workflows
-- Viewer — dashboard and report access only
+- Administrator: complete system control
+- Owner: broad read access to KPIs, reports, and operations
+- Accountant: accounting, reporting, sales, purchasing, and cash/bank work
+- Inventory manager: stock, batches, warehouses, adjustments, and transfers
+- Production manager: BOMs, production runs, schedules, machines, and variance
+- Sales representative and purchase agent: scoped commercial workflows
+- Quality inspector and dispatch clerk: scoped operational workflows
+- Viewer: dashboard and report access only
 
 Permissions are enforced server-side. Hiding a navigation item is a convenience,
 not the security boundary.
@@ -208,16 +207,16 @@ excluded from source control.
 
 ## Production deployment
 
-This repository is not a one-command production appliance. Before a real
-deployment, use managed secrets, HTTPS, a production database, reliable backups,
-restricted proxy settings, durable sessions/cache/queues, log retention, and an
+This repository still needs deployment hardening before real use. Configure
+managed secrets, HTTPS, a production database, reliable backups, restricted
+proxy settings, durable sessions, cache and queues, log retention, and an
 independent application-security review.
 
 See the [deployment checklist](docs/DEPLOYMENT.md) and [security policy](SECURITY.md).
 
 ## Repository status and licensing
 
-The public edition demonstrates the complete architecture and major workflows.
+The public edition includes the application architecture and major workflows.
 Real business data and deployment-specific material were intentionally removed.
 
 Copyright © 2026 Afnan Mehmood Awan. This is a source-available portfolio
